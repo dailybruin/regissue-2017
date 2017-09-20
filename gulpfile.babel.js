@@ -13,13 +13,20 @@ import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import minifyCSS from 'gulp-csso';
 
-// javasacript
+// javascript
 import webpack from 'webpack-stream';
 import uglify from 'gulp-uglify';
 
 import sourcemaps from 'gulp-sourcemaps';
 import bs from 'browser-sync';
 import del from 'del';
+
+// data
+import fs from 'fs';
+import data from 'gulp-data';
+
+// json building
+import getGoogleSheetsData from './load-js-data';
 
 const browserSync = bs.create();
 
@@ -93,6 +100,11 @@ gulp.task('html:dev', () =>
   gulp
     .src('src/*.{njk,html}')
     .pipe(
+      data(file => {
+        return JSON.parse(fs.readFileSync('./data.json'));
+      })
+    )
+    .pipe(
       nunjucksRender({
         path: ['src/partials/'],
       })
@@ -104,6 +116,11 @@ gulp.task('html:prod', () =>
   gulp
     .src('src/*.{njk,html}')
     .pipe(
+      data(file => {
+        return JSON.parse(fs.readFileSync('./data.json'));
+      })
+    )
+    .pipe(
       nunjucksRender({
         path: ['src/partials/'],
       })
@@ -111,6 +128,12 @@ gulp.task('html:prod', () =>
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest('prod/'))
 );
+
+gulp.task('getdata', cb => {
+  getGoogleSheetsData().then(res => {
+    fs.writeFile('./data.json', JSON.stringify(res), 'utf8', () => cb());
+  });
+});
 
 gulp.task(
   'development',
@@ -136,5 +159,5 @@ gulp.task('production', [
 ]);
 
 gulp.task('clean', () => del(['dev/', 'prod/']));
-gulp.task('default', ['development']);
-gulp.task('build', ['production']);
+gulp.task('default', ['getdata', 'development']);
+gulp.task('build', ['getdata', 'production']);
