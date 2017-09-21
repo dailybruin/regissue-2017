@@ -12,6 +12,36 @@
       <p>Aliquam malesuada, risus et vehicula molestie, libero est consequat tortor, eu mattis est magna id tellus. Aenean vel erat nunc. Proin quis vehicula quam. Nam in lacus sed odio lacinia vestibulum. Nulla a vestibulum nisi, in fermentum lorem. Sed augue massa, lobortis non urna et, placerat fringilla est. Ut ultrices lacus at nibh tempus interdum quis a arcu. Duis efficitur sit amet orci vel egestas. Nam sollicitudin egestas venenatis. Sed sit amet ante nec nibh molestie dapibus.</p>
       <p>Pellentesque viverra ex sed purus posuere auctor. Proin eget nisi vel risus aliquet feugiat ac et ligula. Suspendisse ipsum augue, egestas vel eros id, pharetra pulvinar purus. Curabitur mi ante, suscipit non urna in, ullamcorper mattis ligula. Integer mollis, nibh quis varius mollis, risus quam luctus risus, maximus vulputate libero sapien eu lorem. In id metus porta, pretium leo non, fringilla eros. Nunc quis consectetur ipsum. Maecenas eu augue sagittis, facilisis mauris id, pretium massa.</p>
     </article>
+      {% for section_name, section in sections %}
+        {% if not ('30' in section_name) %}
+          <div class="section large-12 columns {{section_name}}">
+            <h1 class="section-header">{{section_name}}</h1>
+            <ul class="article-slider">
+              {% for article in section.articles %}
+                <li class="article-thumbnail">
+                  <div class="article-details">
+                    <a href="{{article.link}}">
+                      <span>BY {{article.author}}</span>
+                      <p>{{article.description}}</p>
+                      <h5>{{article.title}}</h5>
+                    </a>
+                  </div>
+                  <a href="{{article.link}}" target="_blank">
+                    <div class="article-image-link" style="background-image:url('{{article.image}}');">
+
+                    </div>
+                  </a>
+
+                <!--<a href="{{article.link}}">
+                  <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
+                </a>-->
+                </li>
+              {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      {% endfor %}
+
     {% include "scripts.njk" %}
   </body>
 </html>
