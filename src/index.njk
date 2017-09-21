@@ -9,32 +9,51 @@
         <polygon fill="white" points="0,100 100,0 100,100"/>
       </svg>
     </header>
-    <div class="row" id="section-covers">
-      <div class="small-12 medium-6 columns">
+    <div class="row hide-for-small-only" id="section-covers">
+      <div class="small-12 medium-3 columns">
         <a href="#news">
-          <img src="img/cover-opinion.png">
+          <img class="news" src="img/cover-opinion.png">
         </a>
       </div>
-      <div class="small-12 medium-6 columns">
+      <div class="small-12 medium-3 columns opinion">
         <a href="#opinion">
-          <img src="img/cover-opinion.png">
+          <img class="opinion" src="img/cover-opinion.png">
         </a>
       </div>
-      <div class="small-12 medium-6 columns">
-          <a href="#ae">
-            <img src="img/cover-opinion.png">
+      <div class="small-12 medium-3 columns ae">
+          <a href="#a&e">
+            <img class="ae" src="img/cover-ae.png">
           </a>
       </div>
-      <div class="small-12 medium-6 columns">
+      <div class="small-12 medium-3 columns sports">
         <a href="#sports">
-          <img src="img/cover-opinion.png">
+          <img class="sports" src="img/cover-opinion.png">
         </a>
       </div>
     </div>
       {% for section_name, section in sections %}
-        <div class="section large-12 columns {{section_name}}">
-          <h1 class="section-header">{{section_name}}</h1>
-          <ul class="article-slider">
+      <hr>
+        <div class="section row" id="{{section_name}}">
+          <h2 class="section-header">{{section_name}}</h2>
+          <div class="section-cards row small-up-1 medium-up-3 large-up-4">
+            {% for article in section.articles %}
+              <div class="column article-card">
+                <a href="{{article.link}}" target="_blank">
+                  <div class="article-image-link" style="background-image:url('{{article.image}}');">
+
+                  </div>
+                </a>
+                <div class="article-details">
+                  <a href="{{article.link}}" target="_blank">
+                    <h3 class="article-title">{{article.title}}</h3>
+                    <span>By {{article.author}}</span>
+                    <p>{{article.description}}</p>
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <!-- <ul class="article-slider">
             {% for article in section.articles %}
               <li class="article-thumbnail">
                 <div class="article-details">
@@ -55,7 +74,7 @@
               </a>
               </li>
             {% endfor %}
-          </ul>
+          </ul> -->
         </div>
       {% endfor %}
 
