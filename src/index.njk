@@ -3,6 +3,34 @@
   <head></head>
   <body>
     {% include "head.njk" %}
+    <header>
+      <h1>Registration Issue 2017</h1>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon fill="white" points="0,100 100,0 100,100"/>
+      </svg>
+    </header>
+    <div class="row" id="section-covers">
+      <div class="small-12 medium-6 columns">
+        <a href="#news">
+          <img src="img/cover-opinion.png">
+        </a>
+      </div>
+      <div class="small-12 medium-6 columns">
+        <a href="#opinion">
+          <img src="img/cover-opinion.png">
+        </a>
+      </div>
+      <div class="small-12 medium-6 columns">
+          <a href="#ae">
+            <img src="img/cover-opinion.png">
+          </a>
+      </div>
+      <div class="small-12 medium-6 columns">
+        <a href="#sports">
+          <img src="img/cover-opinion.png">
+        </a>
+      </div>
+    </div>
     <article>
       <h1>Article Title</h1>
       <span class="author">Author Name</span>
@@ -32,9 +60,9 @@
                     </div>
                   </a>
 
-                <!--<a href="{{article.link}}">
+                <a href="{{article.link}}">
                   <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
-                </a>-->
+                </a>
                 </li>
               {% endfor %}
             {% endif %}
