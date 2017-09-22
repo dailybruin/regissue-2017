@@ -3,31 +3,55 @@
   <head></head>
   <body>
     {% include "head.njk" %}
-    <header>
+    
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+        <div class="title-bar-title">Sections</div>
+    </div>
+    <div data-sticky-container>
+      <div class="top-bar" id="responsive-menu" data-sticky data-top-anchor="section-covers:bottom" data-options="marginTop:0;" style="width:100%">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Registration Issue 2017</li>
+            <li class="has-submenu">
+              <a href="">Sections</a>
+              <ul class="submenu menu vertical" data-submenu>
+                <li><a href="#news">News</a></li>
+                <li><a href="#opinion">Opinion</a></li>
+                <li><a href="#a&e">A&E</a></li>
+                <li><a href="#sports">Sports</a></li>
+                <li><a href="#prime">prime</a></li>
+                <li><a href="#quad">Quad</a></li>
+                <li><a href="#art">Art</a></li>
+                <li><a href="#video">Video</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    <header style="background-image:url('img/header.jpg');">
       <h1>Registration Issue 2017</h1>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon fill="white" points="0,100 100,0 100,100"/>
-      </svg>
     </header>
     <div class="row hide-for-small-only" id="section-covers">
       <div class="small-12 medium-3 columns">
         <a href="#news">
-          <img class="news" src="img/cover-opinion.png">
+          <img id="news-cover" src="img/cover-opinion.png">
         </a>
       </div>
       <div class="small-12 medium-3 columns opinion">
         <a href="#opinion">
-          <img class="opinion" src="img/cover-opinion.png">
+          <img id="opinion-cover" src="img/cover-opinion.png">
         </a>
       </div>
       <div class="small-12 medium-3 columns ae">
           <a href="#a&e">
-            <img class="ae" src="img/cover-ae.png">
+            <img id="ae-cover" src="img/cover-ae.png">
           </a>
       </div>
       <div class="small-12 medium-3 columns sports">
         <a href="#sports">
-          <img class="sports" src="img/cover-opinion.png">
+          <img id="sports-cover" src="img/cover-sports.png">
         </a>
       </div>
     </div>
@@ -46,7 +70,7 @@
                 <div class="article-details">
                   <a href="{{article.link}}" target="_blank">
                     <h3 class="article-title">{{article.title}}</h3>
-                    <span>By {{article.author}}</span>
+                    <span><i>By {{article.author}}</i></span>
                     <p>{{article.description}}</p>
                   </a>
                 </div>
