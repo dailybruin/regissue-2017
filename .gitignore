@@ -3,3 +3,4 @@ node_modules
 data.json
 prod/
 dev/
+.DS_Store
