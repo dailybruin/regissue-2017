@@ -33,7 +33,7 @@ const browserSync = bs.create();
 gulp.task('images:dev', () => gulp.src('src/img/*').pipe(gulp.dest('dev/img')));
 
 gulp.task('images:prod', () =>
-  gulp.src('src/img/*').pipe(imagemin()).pipe(gulp.dest('prod/img'))
+  gulp.src('src/img/*').pipe(gulp.dest('prod/img'))
 );
 
 gulp.task('styles:dev', () =>
@@ -54,7 +54,6 @@ gulp.task('styles:prod', () =>
     .pipe(postcss([autoprefixer()]))
     .pipe(minifyCSS())
     .pipe(gulp.dest('./prod/css'))
-    .pipe(browserSync.stream())
 );
 
 const webpackConfig = {
@@ -110,6 +109,7 @@ gulp.task('html:dev', () =>
       })
     )
     .pipe(gulp.dest('dev/'))
+    .pipe(browserSync.stream())
 );
 
 gulp.task('html:prod', () =>
@@ -147,7 +147,9 @@ gulp.task(
 
     gulp.watch('./src/scss/**/*.scss', ['styles:dev']);
     gulp.watch('./src/js/**/*.js', ['scripts:dev']);
-    gulp.watch('src/*.{njk,html}').on('change', browserSync.reload);
+    gulp
+      .watch('src/*.{njk,html}', ['html:dev'])
+      .on('change', browserSync.reload);
   }
 );
 
