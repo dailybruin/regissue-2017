@@ -31,7 +31,6 @@ h1 {
   @media screen and (max-width: 39.9375em) {
     font-size: 2em;
   }
-
 }
 
 .section {
@@ -43,7 +42,7 @@ h2 {
   font-family: $title-font-stack;
 }
 
-#section-covers{
+#section-covers {
   transform: translateY(-15vh);
   img {
     transition: transform 0.3s ease-out;
@@ -55,15 +54,15 @@ h2 {
 
 .article-card {
   transition: 0.3s ease-out;
-  border-bottom: 3px solid rgba(0,0,0,0);
-  padding-top:15px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  padding-top: 15px;
 }
 
 .article-card:hover {
   border-bottom: 3px solid black;
-  -webkit-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.25);
-  -moz-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.25);
-  box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.25);
   z-index: 50;
   transform: translateY(-10px);
 }
@@ -77,7 +76,7 @@ h2 {
   }
 }
 
-.article-title{
+.article-title {
   font-family: $title-font-stack;
   font-size: 1.5em;
 }
@@ -88,48 +87,115 @@ h2 {
 
 #sports-cover {
   border: 3px solid transparent;
-  -moz-border-image: -moz-linear-gradient(to right top, #24FF87 0%, #007C06 100%);
-  -webkit-border-image: -webkit-linear-gradient(to right top, #24FF87 0%, #007C06 100%);
-  border-image: linear-gradient(to right top, #24FF87 0%, #007C06 100%);
+  -moz-border-image: -moz-linear-gradient(
+    to right top,
+    #24ff87 0%,
+    #007c06 100%
+  );
+  -webkit-border-image: -webkit-linear-gradient(
+    to right top,
+    #24ff87 0%,
+    #007c06 100%
+  );
+  border-image: linear-gradient(to right top, #24ff87 0%, #007c06 100%);
 
   border-image-slice: 1;
 }
 
 #ae-cover {
   border: 3px solid transparent;
-  -moz-border-image: -moz-linear-gradient(to right top, #FF25E2 0%, #86002D 100%);
-  -webkit-border-image: -webkit-linear-gradient(to right top, #FF25E2 0%, #86002D 100%);
-  border-image: linear-gradient(to right top, #FF25E2 0%, #86002D 100%);
+  -moz-border-image: -moz-linear-gradient(
+    to right top,
+    #ff25e2 0%,
+    #86002d 100%
+  );
+  -webkit-border-image: -webkit-linear-gradient(
+    to right top,
+    #ff25e2 0%,
+    #86002d 100%
+  );
+  border-image: linear-gradient(to right top, #ff25e2 0%, #86002d 100%);
 
   border-image-slice: 1;
 }
 
 #news-cover {
   border: 3px solid transparent;
-  -moz-border-image: -moz-linear-gradient(to right top, #1B85FF 0%, #0003BB 100%);
-  -webkit-border-image: -webkit-linear-gradient(to right top, #1B85FF 0%, #0003BB 100%);
-  border-image: linear-gradient(to right top, #1B85FF 0%, #0003BB 100%);
+  -moz-border-image: -moz-linear-gradient(
+    to right top,
+    #1b85ff 0%,
+    #0003bb 100%
+  );
+  -webkit-border-image: -webkit-linear-gradient(
+    to right top,
+    #1b85ff 0%,
+    #0003bb 100%
+  );
+  border-image: linear-gradient(to right top, #1b85ff 0%, #0003bb 100%);
 
   border-image-slice: 1;
 }
 
 #opinion-cover {
   border: 3px solid transparent;
-  -moz-border-image: -moz-linear-gradient(to right top, #EEFF00 0%, #FFD000 100%);
-  -webkit-border-image: -webkit-linear-gradient(to right top, #EEFF00 0%, #FFD000 100%);
-  border-image: linear-gradient(to right top, #EEFF00 0%, #FFD000 100%);
+  -moz-border-image: -moz-linear-gradient(
+    to right top,
+    #eeff00 0%,
+    #ffd000 100%
+  );
+  -webkit-border-image: -webkit-linear-gradient(
+    to right top,
+    #eeff00 0%,
+    #ffd000 100%
+  );
+  border-image: linear-gradient(to right top, #eeff00 0%, #ffd000 100%);
 
   border-image-slice: 1;
 }
 
-.top-bar, .top-bar ul {
+.top-bar,
+.top-bar ul {
   background-color: white;
   z-index: 51;
   transition: 0.3s ease-out;
 }
 
 .top-bar {
-  -webkit-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.25);
-  -moz-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.25);
-  box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 14px 1px rgba(0, 0, 0, 0.25);
+}
+
+.page-footer {
+  min-height: 6em;
+  background-color: #f5f5f5;
+  img {
+    max-height: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.2;
+  }
+
+  .footer-content {
+    text-align: center;
+    padding-top: 1em;
+
+    ul {
+      list-style: none;
+      margin-top: 0.3em;
+      margin-left: 0;
+      li {
+        a {
+          color: black;
+        }
+        display: inline-block;
+        margin-right: 0.5em;
+        opacity: 0.2;
+        transition: opacity 0.4s linear;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
