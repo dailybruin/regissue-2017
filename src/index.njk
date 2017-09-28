@@ -16,21 +16,16 @@
     {% include "head.njk" %}
 
     <div data-sticky-container>
-      <div class="top-bar" data-sticky data-top-anchor="section-covers:bottom" data-options="marginTop:0;" style="width:100%">
+      <div class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%">
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text">Registration Issue 2017</li>
             <li class="has-submenu">
               <a href="">Sections</a>
               <ul class="submenu menu vertical" data-submenu>
-                <li><a href="#news">News</a></li>
-                <li><a href="#opinion">Opinion</a></li>
-                <li><a href="#a&e">A&E</a></li>
-                <li><a href="#sports">Sports</a></li>
-                <li><a href="#prime">prime</a></li>
-                <li><a href="#quad">Quad</a></li>
-                <li><a href="#art">Art</a></li>
-                <li><a href="#video">Video</a></li>
+                {% for section_name, section in sections %}
+                  <li><a href="#{{section_name}}">{{section_name}}</a></li>
+                {% endfor %}
               </ul>
             </li>
           </ul>
@@ -42,25 +37,26 @@
     </header>
     <div class="row hide-for-small-only" id="section-covers">
       <div class="small-12 medium-3 columns">
-        <a href="#news">
+        <a href="#News">
           <img id="news-cover" src="img/cover-news.jpg">
         </a>
       </div>
       <div class="small-12 medium-3 columns opinion">
-        <a href="#opinion">
+        <a href="#Opinion">
           <img id="opinion-cover" src="img/cover-opinion.jpg">
         </a>
       </div>
       <div class="small-12 medium-3 columns ae">
-          <a href="#a&e">
+          <a href="#A&E">
             <img id="ae-cover" src="img/cover-ae.jpg">
           </a>
       </div>
       <div class="small-12 medium-3 columns sports">
-        <a href="#sports">
+        <a href="#Sports">
           <img id="sports-cover" src="img/cover-sports.jpg">
         </a>
       </div>
+      <div id="nav-bar-anchor"></div>
     </div>
       {% for section_name, section in sections %}
       <hr>
